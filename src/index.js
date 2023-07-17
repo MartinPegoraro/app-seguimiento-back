@@ -11,6 +11,12 @@ createTable()
 
 app.use('/api', clientesRoutes)
 
+app.use((req, res, next) => {
+    res.status(404).json({
+        message: ' endpoint not found'
+    })
+})
+
 app.listen(3000)
 
 console.log('Server running on port');
